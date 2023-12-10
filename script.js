@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function() {
+    openTab(event, 'tab1');
+});
+
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -11,7 +15,6 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 function changeLanguage() {
     var language = document.getElementById("language").value;
     var name = document.querySelector(".name");
