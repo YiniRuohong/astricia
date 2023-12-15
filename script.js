@@ -1,8 +1,18 @@
-document.addEventListener("DOMContentLoaded", function() {
-    openTab(event, 'tab1');
+var introContainer = document.getElementById("introContainer");
+var tabAndImages = document.getElementById("tabAndImages");
+
+window.addEventListener("scroll", function() {
+    var scrollY = window.scrollY || window.pageYOffset;
+    tabAndImages.style.transform = "translateY(-" + scrollY + "px)";
+    introContainer.style.transform = "translateY(0)";
 });
 
-function openTab(evt, tabName) {
+document.addEventListener("DOMContentLoaded", function() {
+    openTab('tab1');
+    changeLanguage();
+});
+
+function openTab(tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -13,8 +23,8 @@ function openTab(evt, tabName) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
 }
+
 function changeLanguage() {
     var language = document.getElementById("language").value;
     var name = document.querySelector(".name");
@@ -40,7 +50,7 @@ function changeLanguage() {
             feature.innerHTML = "Animal ears, staff, heterochromia, star magic";
             age.innerHTML = "18 years old";
             birthday.innerHTML = "December 8th";
-            height = "165cm";
+            height.innerHTML = "165cm";
             personality.innerHTML = "Lively, cheerful, helpful";
             hobby.innerHTML = "Collecting ancient stories, ice fruit pudding, hot springs, furry things";
             break;
