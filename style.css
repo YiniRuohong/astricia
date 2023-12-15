@@ -1,36 +1,41 @@
-/* Reset some styles for a cleaner look */
+/* 重置一些样式以获得更清晰的外观 */
 body, h1, p {
     margin: 0;
 }
 
+/* 整个页面的容器 */
 .container {
     display: flex;
-    background-color: #fff;
+    background-color: #fff; /* 设置背景颜色为白色 */
     margin: 0;
-    overflow: hidden;
+    overflow: hidden; /* 隐藏容器之外的溢出内容 */
 }
 
+/* 左侧介绍部分的容器 */
 .intro-container {
-    width: 25%;
+    width: 25%; /* 设置宽度为容器的25% */
     padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f2f2f2; /* 设置介绍部分的背景颜色 */
+    border-radius: 10px; /* 添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加微弱的阴影 */
 }
 
+/* 右侧图像展示部分的容器 */
 .image-container {
-    width: 75%;
-    overflow-y: auto;
-    height: 100vh;
+    width: 75%; /* 设置宽度为容器的75% */
+    overflow-y: auto; /* 为图像容器启用垂直滚动 */
+    height: 100vh; /* 设置高度为视口高度的100% */
     padding: 20px;
-    transition: transform 0.3s ease-in-out; /* Smooth transition effect */
-    margin-left: auto; /* Move to the right */
+    transition: transform 0.3s ease-in-out; /* 添加平滑的过渡效果 */
+    margin-left: auto; /* 将图像容器移至右侧 */
 }
 
+/* 标题样式 */
 h1 {
-    color: #333;
+    color: #333; /* 将标题颜色设置为深色 */
 }
 
+/* 图像选择的选项卡样式 */
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
@@ -58,6 +63,7 @@ h1 {
     background-color: #ccc;
 }
 
+/* 选项卡内容的样式 */
 .tabcontent {
     display: none;
     padding: 12px;
@@ -66,12 +72,14 @@ h1 {
     border-radius: 0 0 10px 10px;
 }
 
+/* 选项卡内容中的图像样式 */
 .tabcontent img.character-image {
     width: 100%;
     height: auto;
-    margin: 0 auto; /* 图片居中 */
+    margin: 0 auto; /* 图像居中 */
 }
 
+/* 语言切换器样式 */
 .language-switcher {
     margin-top: 20px;
 }
@@ -85,29 +93,32 @@ h1 {
     outline: none;
 }
 
+/* 社交媒体链接和头像的容器 */
 .social-media {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* 头像图像样式 */
 .avatar img {
-    border-radius: 50%;
+    border-radius: 50%; /* 使头像图像呈圆形 */
     width: 80px;
     height: 80px;
 }
 
+/* 链接的样式 */
 .links {
     font-size: 14px;
     margin-top: 10px;
 }
 
-/* Ensure smooth scrolling */
+/* 确保平滑滚动 */
 html {
     scroll-behavior: smooth;
 }
 
-/* Hide scrollbar */
+/* 隐藏滚动条 */
 body::-webkit-scrollbar {
     width: 0.5em;
 }
