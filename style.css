@@ -1,41 +1,41 @@
-/* 重置一些样式以获得更清晰的外观 */
+/* 通用样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body、h1、p 的 margin 重置为零 */
 body, h1, p {
     margin: 0;
 }
 
-/* 整个页面的容器 */
+/* 容器样式，使用弹性盒子，隐藏溢出内容 */
 .container {
     display: flex;
-    background-color: #fff; /* 设置背景颜色为白色 */
     margin: 0;
-    overflow: hidden; /* 隐藏容器之外的溢出内容 */
+    overflow: hidden;
 }
 
-/* 左侧介绍部分的容器 */
-.intro-container {
-    width: 25%; /* 设置宽度为容器的25% */
+/* 共用的容器样式，白色背景、阴影、圆角、内边距和右外边距 */
+.intro-container, .image-container, .social-media, .avatar {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     padding: 20px;
-    background-color: #f2f2f2; /* 设置介绍部分的背景颜色 */
-    border-radius: 10px; /* 添加圆角 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加微弱的阴影 */
+    margin-right: 20px;
 }
 
-/* 右侧图像展示部分的容器 */
+/* 图片容器样式，弹性伸缩，垂直滚动，高度 100vh，过渡效果，右外边距自动 */
 .image-container {
-    width: 75%; /* 设置宽度为容器的75% */
-    overflow-y: auto; /* 为图像容器启用垂直滚动 */
-    height: 100vh; /* 设置高度为视口高度的100% */
-    padding: 20px;
-    transition: transform 0.3s ease-in-out; /* 添加平滑的过渡效果 */
-    margin-left: auto; /* 将图像容器移至右侧 */
+    flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 20%;
 }
 
-/* 标题样式 */
-h1 {
-    color: #333; /* 将标题颜色设置为深色 */
-}
-
-/* 图像选择的选项卡样式 */
+/* 标签样式，边框、背景色、圆角、上外边距 */
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
@@ -44,26 +44,31 @@ h1 {
     margin-top: 20px;
 }
 
+/* 标签按钮样式，浮动、边框、圆角、背景色、内外边距、光标指针、过渡效果、字体大小 */
 .tab button {
     background-color: inherit;
     float: left;
-    border: none;
-    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px 12px;
+    margin: 0 5px;
     cursor: pointer;
-    padding: 14px 16px;
     transition: 0.3s;
     font-size: 16px;
 }
 
+/* 标签按钮悬停效果，背景色变浅灰色 */
 .tab button:hover {
     background-color: #ddd;
 }
 
+/* 激活状态的标签按钮样式，背景色深灰色 */
 .tab button.active {
     background-color: #ccc;
 }
 
-/* 选项卡内容的样式 */
+/* 标签内容样式，隐藏、内边距、边框、圆角 */
 .tabcontent {
     display: none;
     padding: 12px;
@@ -72,18 +77,19 @@ h1 {
     border-radius: 0 0 10px 10px;
 }
 
-/* 选项卡内容中的图像样式 */
+/* 标签内容中的角色图片样式，宽度 100%，高度自动，居中显示 */
 .tabcontent img.character-image {
     width: 100%;
     height: auto;
-    margin: 0 auto; /* 图像居中 */
+    margin: 0 auto;
 }
 
-/* 语言切换器样式 */
+/* 语言切换器样式，上外边距 */
 .language-switcher {
     margin-top: 20px;
 }
 
+/* 语言切换器下拉框样式，字体大小、内外边距、圆角、背景色、无边框、轮廓线 */
 .language-switcher select {
     font-size: 14px;
     padding: 8px;
@@ -93,37 +99,59 @@ h1 {
     outline: none;
 }
 
-/* 社交媒体链接和头像的容器 */
-.social-media {
+/* 头像容器样式，弹性盒子，垂直方向排列，居中对齐，下外边距 */
+.avatar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-/* 头像图像样式 */
+/* 头像样式，圆角、宽高 80px */
 .avatar img {
-    border-radius: 50%; /* 使头像图像呈圆形 */
+    border-radius: 50%;
     width: 80px;
     height: 80px;
 }
 
-/* 链接的样式 */
+/* 社交媒体链接容器样式，弹性盒子，水平方向居中，上外边距 */
 .links {
-    font-size: 14px;
+    display: flex;
+    justify-content: center;
     margin-top: 10px;
 }
 
-/* 确保平滑滚动 */
-html {
-    scroll-behavior: smooth;
+/* 社交媒体链接段落样式，左右边距，字体图标大小、颜色 */
+.links p {
+    margin: 0 10px;
 }
 
-/* 隐藏滚动条 */
-body::-webkit-scrollbar {
-    width: 0.5em;
+.links i {
+    font-size: 24px;
+    color: #000;
 }
 
-body::-webkit-scrollbar-thumb {
-    background-color: #f1f1f1;
-    outline: 1px solid #f1f1f1;
+/* 响应式设计，当屏幕宽度小于 768px 时的样式变化 */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    /* 移除弹性盒子外边距和右外边距 */
+    .intro-container, .image-container, .social-media, .avatar {
+        border-radius: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    /* 移除标题的下外边距 */
+    .intro h1 {
+        margin-bottom: 10px;
+    }
+
+    /* 响应式头像大小 */
+    .avatar img {
+        width: 60px;
+        height: 60px;
+    }
 }
