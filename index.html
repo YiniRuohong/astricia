@@ -6,27 +6,27 @@
     <meta name="description" content="Astricia Character Page - 具有兽耳、法杖和星辰魔法的迷人角色。">
     <meta name="keywords" content="Astricia, 角色, 兽耳, 法杖, 星辰魔法">
     <meta name="author" content="Your Name">
-
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Astricia Character Page">
-    <meta property="og:description" content="Astricia Character Page - 具有兽耳、法杖和星辰魔法的迷人角色。">
-    <meta property="og:image" content="path/to/og-image.jpg">
-    <meta property="og:url" content="your-website-url">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="loader-container">
+        <div id="loader"></div>
+    </div>
+
     <div class="container">
         <div class="intro-container" id="introContainer">
             <div class="intro">
                 <h1>Astricia Character Page</h1>
-                <p>姓名：<span class="name">Astricia</span></p>
-                <p>特征：<span class="feature">兽耳，法杖，异瞳，星辰魔法</span></p>
-                <p>年龄：<span class="age">18岁</span></p>
-                <p>生日：<span class="birthday">12月8日</span></p>
-                <p>身高：<span class="height">165cm</span></p>
-                <p>性格：<span class="personality">活泼，开朗，乐于助人</span></p>
-                <p>喜好：<span class="hobby">收集古老故事，冰果布丁，温泉，毛茸茸的东西</span></p>
+                <p>姓名：<span class="name"></span></p>
+                <p>特征：<span class="feature"></span></p>
+                <p>年龄：<span class="age"></span></p>
+                <p>生日：<span class="birthday"></span></p>
+                <p>身高：<span class="height"></span></p>
+                <p>性格：<span class="personality"></span></p>
+                <p>喜好：<span class="hobby"></span></p>
                 <div class="language-switcher">
                     <label for="language">Language：</label>
                     <select id="language" onchange="changeLanguage()">
@@ -40,14 +40,14 @@
                         <img src="avatar.JPG" alt="Astricia Avatar">
                     </div>
                     <div class="links">
-                        <p>推特：<a href="https://twitter.com/Yini_Ruohong" target="_blank">推特</a></p>
-                        <p>博客：<a href="https://blog.atago.moe" target="_blank">博客</a></p>
+                        <p><a href="https://twitter.com/Yini_Ruohong" target="_blank"><i class="fab fa-twitter"></i></a></p>
+                        <p><a href="https://blog.atago.moe" target="_blank"><i class="fas fa-blog"></i></a></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="image-container" id="imageContainer">
+        <div class="image-container" id="tabAndImages">
             <div class="tab">
                 <button class="tablinks" onclick="openTab('tab1')">Normal</button>
                 <button class="tablinks" onclick="openTab('tab2')">Winter</button>
