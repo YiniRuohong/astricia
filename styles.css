@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+/* 确保图片不会超出它们所在的列 */
+img {
+    max-width: 100%;
+    height: auto; /* 保持图片的纵横比 */
+    display: block; /* 去除图片底部的空隙 */
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+header {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header .languages {
+    margin-top: 10px;
+}
+
+header .languages a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+header .languages a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    display: flex;
+    padding: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    margin-right: 70px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.character {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.character img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.character-info {
+    margin-top: 10px;
+}
+
+.character-info h3 {
+    font-size: 18px;
+}
+
+.character-info p {
+    color: #666;
+}
+
+.side-column {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-column img {
+    width: 90px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.profile, .ears {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.profile h2, .ears h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.profile ul {
+    list-style: none;
+}
+
+.profile ul li, .ears p {
+    margin-bottom: 10px;
+}
+
+.ears img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.albums-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.albums-button .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0.1)); /* 渐变背景 */
+    color: #007BFF; /* 按钮文字颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    border: 1px solid #007BFF; /* 边框颜色 */
+    border-radius: 5px; /* 圆角 */
+    transition: background 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+}
+
+.albums-button .button:hover {
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.3)); /* 悬停时的渐变背景 */
+    color: white; /* 悬停时的文字颜色 */
+}
+
+
+.albums-button, .maps-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.albums-button .button, .maps-button .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0.1)); /* 渐变背景 */
+    color: #007BFF; /* 按钮文字颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    border: 1px solid #007BFF; /* 边框颜色 */
+    border-radius: 5px; /* 圆角 */
+    transition: background 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+}
+
+.albums-button .button:hover, .maps-button .button:hover {
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.3)); /* 悬停时的渐变背景 */
+    color: white; /* 悬停时的文字颜色 */
+}
+
+/* 图片放大效果的样式 */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #caption {  
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 使图片可点击 */
+.clickable {
+    cursor: pointer;
+}
