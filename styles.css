@@ -236,3 +236,19 @@ header .languages a:hover {
 .clickable {
     cursor: pointer;
 }
+
+/* 联系方式图标样式 */
+.contact-info {
+    margin-top: 10px;
+}
+
+.contact-info a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #007BFF;
+}
