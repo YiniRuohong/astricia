@@ -30,22 +30,20 @@
             background-color: #0056b3;
         }
         .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
+            column-count: 3; /* 3列布局 */
+            column-gap: 10px;
             width: 90%;
             max-width: 1200px;
-            margin-bottom: 40px; /* 为模态框留出空间 */
+            margin-bottom: 40px;
         }
         .container img {
             width: 100%;
-            height: auto;
-            display: block;
+            display: inline-block;
+            margin-bottom: 10px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
-            /* 为懒加载添加占位色 */
             background-color: #e0e0e0;
         }
         .container img:hover {
@@ -92,6 +90,19 @@
             color: #bbb;
             text-decoration: none;
         }
+
+        /* 响应式列数设置 */
+        @media (max-width: 1200px) {
+            .container {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                column-count: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -108,7 +119,6 @@
     </div>
 
     <script>
-        // 外部图片链接数组
         const images = [
             'https://cdn.sa.net/2024/10/24/Djz3NSiOVaWq97X.jpg',
             'https://cdn.sa.net/2024/10/24/ENyHIVXKmPBQrnh.jpg',
@@ -125,7 +135,6 @@
             'https://cdn.sa.net/2024/10/24/lzdbu6XBDgWJ2rL.png',
             'https://cdn.sa.net/2024/10/24/3j2JzcgslGtfkYb.png',
             'https://cdn.sa.net/2024/10/24/bm4axGBrVNk1KfA.webp'
-            // 继续添加其他外部图片URL
         ];
 
         const container = document.getElementById('image-container');
@@ -133,13 +142,12 @@
         const modalImg = document.getElementById("img01");
         const span = document.getElementsByClassName("close")[0];
 
-        // 动态加载图片
         function loadImages() {
             images.forEach(image => {
                 const imgElement = document.createElement('img');
                 imgElement.src = image;
                 imgElement.alt = '外部图片';
-                imgElement.loading = 'lazy'; // 启用懒加载
+                imgElement.loading = 'lazy';
                 imgElement.onerror = function() {
                     this.src = 'https://via.placeholder.com/600x400?text=图片无法加载';
                 };
@@ -150,31 +158,26 @@
             });
         }
 
-        // 打开模态框
         function openModal(src) {
             modal.style.display = "flex";
             modalImg.src = src;
         }
 
-        // 关闭模态框
         function closeModal() {
             modal.style.display = "none";
-            modalImg.src = ''; // 清空图片源
+            modalImg.src = '';
         }
 
-        // 点击“×”关闭模态框
         span.onclick = function() {
             closeModal();
         };
 
-        // 点击模态框外部关闭
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         };
 
-        // 初始化加载图片
         document.addEventListener('DOMContentLoaded', loadImages);
     </script>
 </body>
