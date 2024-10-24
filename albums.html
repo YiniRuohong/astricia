@@ -11,8 +11,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f0f0f0;
+            overflow-y: auto; /* 允许垂直滚动 */
         }
         .back-button {
             align-self: flex-start;
@@ -34,6 +35,7 @@
             gap: 10px;
             width: 90%;
             max-width: 1200px;
+            margin-bottom: 40px; /* 为模态框留出空间 */
         }
         .container img {
             width: 100%;
@@ -42,32 +44,33 @@
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            cursor: pointer;
+            /* 为懒加载添加占位色 */
+            background-color: #e0e0e0;
         }
         .container img:hover {
             transform: scale(1.05);
-            cursor: pointer;
         }
         /* 模态框样式 */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
         }
         .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-        .modal-content {
-            animation-name: zoom;
-            animation-duration: 0.6s;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            animation: zoom 0.6s;
         }
         @keyframes zoom {
             from { transform: scale(0) }
@@ -80,18 +83,20 @@
             color: #fff;
             font-size: 40px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            z-index: 1001;
         }
         .close:hover,
         .close:focus {
             color: #bbb;
             text-decoration: none;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">BacktoFrontPage</a>
+    <a href="index.html" class="back-button">返回首页</a>
+
     <div class="container" id="image-container">
         <!-- 图片将通过 JavaScript 动态加载到这里 -->
     </div>
@@ -99,18 +104,25 @@
     <!-- 模态框 -->
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
+        <img class="modal-content" id="img01" alt="大图展示">
     </div>
 
     <script>
-        // 图片文件名数组
+        // 外部图片链接数组
         const images = [
-            'image1.png',
-            'image2.png',
-            'image3.png',
-            'image4.png',
-            'image5.png'
-            // 继续添加其他图片文件名
+            'https://picsum.photos/id/1015/600/400',
+            'https://picsum.photos/id/1016/600/400',
+            'https://picsum.photos/id/1018/600/400',
+            'https://picsum.photos/id/1020/600/400',
+            'https://picsum.photos/id/1024/600/400',
+            'https://picsum.photos/id/1025/600/400',
+            'https://picsum.photos/id/1035/600/400',
+            'https://picsum.photos/id/1037/600/400',
+            'https://picsum.photos/id/1043/600/400',
+            'https://picsum.photos/id/1050/600/400',
+            'https://picsum.photos/id/1060/600/400',
+            'https://picsum.photos/id/1069/600/400'
+            // 继续添加其他外部图片URL
         ];
 
         const container = document.getElementById('image-container');
@@ -119,28 +131,48 @@
         const span = document.getElementsByClassName("close")[0];
 
         // 动态加载图片
-        images.forEach(image => {
-            const imgElement = document.createElement('img');
-            imgElement.src = `albums/${image}`;
-            imgElement.alt = image;
-            imgElement.onclick = function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            };
-            container.appendChild(imgElement);
-        });
+        function loadImages() {
+            images.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.alt = '外部图片';
+                imgElement.loading = 'lazy'; // 启用懒加载
+                imgElement.onerror = function() {
+                    this.src = 'https://via.placeholder.com/600x400?text=图片无法加载';
+                };
+                imgElement.onclick = function() {
+                    openModal(this.src);
+                };
+                container.appendChild(imgElement);
+            });
+        }
+
+        // 打开模态框
+        function openModal(src) {
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
 
         // 关闭模态框
-        span.onclick = function() {
+        function closeModal() {
             modal.style.display = "none";
+            modalImg.src = ''; // 清空图片源
+        }
+
+        // 点击“×”关闭模态框
+        span.onclick = function() {
+            closeModal();
         };
 
-        // 点击模态框外部也关闭
+        // 点击模态框外部关闭
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                closeModal();
             }
         };
+
+        // 初始化加载图片
+        document.addEventListener('DOMContentLoaded', loadImages);
     </script>
 </body>
 </html>
