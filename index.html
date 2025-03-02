@@ -1,284 +1,283 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>「Astricia」参考资料</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* 基础样式优化 */
-        body {
-            font-family: 'Noto Sans SC', Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「Astricia」参考资料</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* 基础样式优化 */
+    body {
+      font-family: 'Noto Sans SC', Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        .container {
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            margin-top: 20px;
-        }
+    .container {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin-top: 20px;
+    }
 
-        /* 头部样式优化 */
-        header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            border-radius: 0;
-            padding: 30px;
-            margin-bottom: 20px;
-        }
+    /* 头部样式优化 */
+    header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      border-radius: 0;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
 
-        .languages a {
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
+    .languages a {
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
 
-        .languages a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+    .languages a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-        /* 内容区域样式优化 */
-        .left-column, .right-column, .side-column {
-            background-color: white;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 0;
-            box-shadow: none;
-        }
+    /* 内容区域样式优化 */
+    /* 添加 flex 布局，允许换行 */
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-        /* 图片样式优化 */
-        .character img, .profile img, .me img {
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+    .left-column, .right-column, .side-column {
+      background-color: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
-        .character img:hover, .profile img:hover, .me img:hover {
-            transform: scale(1.02);
-        }
+    /* 调整列布局比例 */
+    .left-column {
+      flex: 0 0 250px; /* 固定宽度250px */
+    }
 
-        /* 按钮样式优化 */
-        .albums-button .button, .maps-button .button {
-            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
-            padding: 12px 25px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
+    .right-column {
+      flex: 0 0 50%; /* 占据50%的宽度 */
+    }
 
-        .albums-button .button:hover, .maps-button .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
-        }
+    .side-column {
+      flex: 1; /* 占据剩余空间 */
+    }
 
-        /* 联系方式图标样式优化 */
-        .contact-info a {
-            font-size: 1.5em;
-            color: #2575fc;
-            transition: color 0.3s ease;
-        }
+    /* 图片样式优化 */
+    .character img, .profile img, .me img {
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .contact-info a:hover {
-            color: #6a11cb;
-        }
+    .character img:hover, .profile img:hover, .me img:hover {
+      transform: scale(1.02);
+    }
 
-        /* 列表样式优化 */
-        .profile ul {
-            list-style: none;
-            padding: 0;
-        }
+    /* 按钮样式优化 */
+    .albums-button .button, .maps-button .button {
+      background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+      padding: 12px 25px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
 
-        .profile li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
+    .albums-button .button:hover, .maps-button .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+    }
 
-        /* 模态框样式优化 */
-        .modal {
-            background-color: rgba(0, 0, 0, 0.9);
-        }
+    /* 联系方式图标样式优化 */
+    .contact-info a {
+      font-size: 1.5em;
+      color: #2575fc;
+      transition: color 0.3s ease;
+    }
 
-        .modal-content {
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-        }
+    .contact-info a:hover {
+      color: #6a11cb;
+    }
 
-        /* 调整列布局比例 */
-        .left-column {
-            flex: 0 0 250px; /* 固定宽度250px */
-        }
+    /* 列表样式优化 */
+    .profile ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        .right-column {
-            flex: 0 0 50%; /* 占据50%的宽度 */
-        }
+    .profile li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
 
-        .side-column {
-            flex: 1; /* 占据剩余空间 */
-        }
+    /* 模态框样式优化 */
+    .modal {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
 
-        /* 圆形头像样式 */
-        .me img {
-            width: 120px; /* 固定宽度 */
-            height: 120px; /* 固定高度 */
-            border-radius: 50%; /* 圆形 */
-            object-fit: cover; /* 确保图片填充整个区域 */
-        }
+    .modal-content {
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
 
-        /* 优化图片展示区域 */
-        .character img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
+    /* 圆形头像样式 */
+    .me img {
+      width: 120px; /* 固定宽度 */
+      height: 120px; /* 固定高度 */
+      border-radius: 50%; /* 圆形 */
+      object-fit: cover; /* 确保图片填充整个区域 */
+    }
 
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .left-column {
-                flex: 1 1 100%;
-            }
-            
-            .right-column {
-                flex: 1 1 100%;
-            }
-            
-            .me img {
-                width: 100px;
-                height: 100px;
-            }
-        }
+    /* 优化图片展示区域 */
+    .character img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
 
-        /* 图片和文字组合的容器样式 */
-        .character {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+    /* 响应式图片样式 */
+    .profile img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0; /* 移除签名图片圆角 */
+      box-shadow: none; /* 移除签名图片阴影 */
+    }
 
-        /* 图片样式 */
-        .character img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            transition: transform 0.3s ease;
-        }
+    /* 文字信息样式 */
+    .character-info {
+      margin-top: 10px;
+    }
 
-        /* 签名图片样式 */
-        .profile img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0; /* 移除签名图片圆角 */
-            box-shadow: none; /* 移除签名图片阴影 */
-        }
+    .character-info h3 {
+      margin: 0;
+      color: #333;
+    }
 
-        /* 文字信息样式 */
-        .character-info {
-            margin-top: 10px;
-        }
+    .character-info p {
+      margin: 5px 0 0;
+      color: #666;
+    }
 
-        .character-info h3 {
-            margin: 0;
-            color: #333;
-        }
+    /* 图片和文字组合的容器样式 */
+    .character {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .character-info p {
-            margin: 5px 0 0;
-            color: #666;
-        }
-    </style>
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      /* 主要内容各列均占满100%宽度 */
+      .left-column,
+      .right-column,
+      .side-column {
+        flex: 1 1 100%;
+        margin: 10px 0;
+      }
+      
+      .me img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 data-lang="title">「Astricia」参考资料</h1>
-            <div class="languages">
-                <a href="#" data-lang-switch="jp">日本語</a> / 
-                <a href="#" data-lang-switch="zh">中文</a> / 
-                <a href="#" data-lang-switch="en">English</a>
-            </div>
-        </header>
-        <div class="main-content">
-            <div class="left-column">
-                <div class="profile">
-                    <h2 data-lang="basic-info-title">基本信息</h2>
-                    <ul>
-                        <li data-lang="name">名字: Astricia</li>
-                        <li data-lang="feature">特征: 兽耳，法杖，异瞳，星辰魔法</li>
-                        <li data-lang="age">年龄: 18岁</li>
-                        <li data-lang="birthday">生日: 12月8日</li>
-                        <li data-lang="height">身高: 165cm</li>
-                        <li data-lang="cup">喜好: 收集古老故事，冰果布丁，温泉，毛茸茸的东西</li>
-                        <li data-lang="character">性格: 活泼，开朗，乐于助人</li>
-                        <img src="source/签名.png" alt="签名" class="clickable" loading="lazy">
-                    </ul>
-                </div>
-                <div class="me">
-                    <h2 data-lang="warn-title">作者：Yini_Ruohong</h2>                   
-                    <img src="https://cdn.sa.net/2024/10/24/Knmr5dXCQFycqDp.jpg" alt="头像" class="clickable" loading="lazy">
-                    <p data-lang="warn-desc">一个喜欢随便写点什么人</p>
-                    <!-- 添加联系方式 -->
-                    <div class="contact-info">
-                        <a href="https://blog.atago.moe" target="_blank"><i class="fas fa-blog"></i></a>
-                        <a href="https://x.com/Yini_Ruohong" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="right-column">
-                <div class="character">
-                    <a href="https://cdn.sa.net/2024/10/23/hiDBApzW1Gl2bU4.png" target="_blank">
-                        <img src="https://cdn.sa.net/2024/10/23/hiDBApzW1Gl2bU4.png" loading="lazy" alt="常服">
-                    </a>
-                    <div class="character-info">
-                        <h3 data-lang="healer-ver">Normal</h3>
-                        <p data-lang="healer-desc">常服</p>
-                    </div>
-                </div>
-                <div class="character">
-                    <a href="https://cdn.sa.net/2024/10/23/Rt6CAwJgHL19hiu.png" target="_blank">
-                        <img src="https://cdn.sa.net/2024/10/23/Rt6CAwJgHL19hiu.png" loading="lazy" alt="冬装">
-                    </a>
-                    <div class="character-info">
-                        <h3 data-lang="idol-ver">Winter</h3>
-                        <p data-lang="idol-desc">冬装</p>
-                    </div>
-                </div>
-            </div>
-            <div class="side-column">
-                <img src="source/stickers1.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers2.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers3.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers4.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers5.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers6.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers7.png" alt="stickers" class="clickable" loading="lazy">
-                <img src="source/stickers8.png" alt="stickers" class="clickable" loading="lazy">
-                <!-- 添加 Albums 和 Maps 切换按钮 -->
-                <div class="albums-button">
-                    <a href="albums.html" class="button">Albums</a>
-                </div>
-                <div class="maps-button">
-                    <a href="maps.html" class="button">Maps</a>
-                </div>
-            </div>
+  <div class="container">
+    <header>
+      <h1 data-lang="title">「Astricia」参考资料</h1>
+      <div class="languages">
+        <a href="#" data-lang-switch="jp">日本語</a> / 
+        <a href="#" data-lang-switch="zh">中文</a> / 
+        <a href="#" data-lang-switch="en">English</a>
+      </div>
+    </header>
+    <div class="main-content">
+      <div class="left-column">
+        <div class="profile">
+          <h2 data-lang="basic-info-title">基本信息</h2>
+          <ul>
+            <li data-lang="name">名字: Astricia</li>
+            <li data-lang="feature">特征: 兽耳，法杖，异瞳，星辰魔法</li>
+            <li data-lang="age">年龄: 18岁</li>
+            <li data-lang="birthday">生日: 12月8日</li>
+            <li data-lang="height">身高: 165cm</li>
+            <li data-lang="cup">喜好: 收集古老故事，冰果布丁，温泉，毛茸茸的东西</li>
+            <li data-lang="character">性格: 活泼，开朗，乐于助人</li>
+            <img src="source/签名.png" alt="签名" class="clickable" loading="lazy">
+          </ul>
         </div>
+        <div class="me">
+          <h2 data-lang="warn-title">作者：Yini_Ruohong</h2>                   
+          <img src="https://cdn.sa.net/2024/10/24/Knmr5dXCQFycqDp.jpg" alt="头像" class="clickable" loading="lazy">
+          <p data-lang="warn-desc">一个喜欢随便写点什么人</p>
+          <!-- 添加联系方式 -->
+          <div class="contact-info">
+            <a href="https://blog.atago.moe" target="_blank"><i class="fas fa-blog"></i></a>
+            <a href="https://x.com/Yini_Ruohong" target="_blank"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="character">
+          <a href="https://cdn.sa.net/2024/10/23/hiDBApzW1Gl2bU4.png" target="_blank">
+            <img src="https://cdn.sa.net/2024/10/23/hiDBApzW1Gl2bU4.png" loading="lazy" alt="常服">
+          </a>
+          <div class="character-info">
+            <h3 data-lang="healer-ver">Normal</h3>
+            <p data-lang="healer-desc">常服</p>
+          </div>
+        </div>
+        <div class="character">
+          <a href="https://cdn.sa.net/2024/10/23/Rt6CAwJgHL19hiu.png" target="_blank">
+            <img src="https://cdn.sa.net/2024/10/23/Rt6CAwJgHL19hiu.png" loading="lazy" alt="冬装">
+          </a>
+          <div class="character-info">
+            <h3 data-lang="idol-ver">Winter</h3>
+            <p data-lang="idol-desc">冬装</p>
+          </div>
+        </div>
+      </div>
+      <div class="side-column">
+        <img src="source/stickers1.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers2.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers3.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers4.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers5.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers6.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers7.png" alt="stickers" class="clickable" loading="lazy">
+        <img src="source/stickers8.png" alt="stickers" class="clickable" loading="lazy">
+        <!-- 添加 Albums 和 Maps 切换按钮 -->
+        <div class="albums-button">
+          <a href="albums.html" class="button">Albums</a>
+        </div>
+        <div class="maps-button">
+          <a href="maps.html" class="button">Maps</a>
+        </div>
+      </div>
     </div>
-    
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="caption"></div>
-    </div>
-    
-    <script src="scripts.js"></script>
+  </div>
+  
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+  </div>
+  
+  <script src="scripts.js"></script>
 </body>
 </html>
